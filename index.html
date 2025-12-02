@@ -197,7 +197,7 @@
       padding: 8px 12px;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.92);
-      color: var(--accent);
+      color: #222;
       font-weight: 700;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     }
@@ -250,6 +250,21 @@
     .price span {
       color: var(--muted);
       font-size: 13px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: #444;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .meta .dot::before {
+      content: "•";
+      margin: 0 6px;
+      color: #aaa;
     }
 
     .card .actions {
@@ -377,6 +392,9 @@
       <div class="card-body">
         <h3>Cozy 1BHK Villa | Terrace & AC | Secunderabad</h3>
         <p>Airbnb ID 1488883253714215311. City-skyline views, terrace access, and self check-in near Secunderabad highlights.</p>
+        <div class="meta">
+          <span>3 guests</span><span class="dot"></span><span>1 bedroom</span><span class="dot"></span><span>2 beds</span><span class="dot"></span><span>1 bath</span><span class="dot"></span><span>★ 5.0 (3)</span>
+        </div>
         <div class="amenities">
           <span class="tag">Wifi</span>
           <span class="tag">Kitchen</span>
@@ -401,6 +419,9 @@
       <div class="card-body">
         <h3>Spacious 2BHK Villa | Terrace & AC | Secunderabad</h3>
         <p>Airbnb ID 772298180319964078. Two-bedroom villa with terrace, strong Wi‑Fi, AC, and parking.</p>
+        <div class="meta">
+          <span>6 guests</span><span class="dot"></span><span>2 bedrooms</span><span class="dot"></span><span>3 beds</span><span class="dot"></span><span>2 baths</span><span class="dot"></span><span>★ 4.85 (66)</span>
+        </div>
         <div class="amenities">
           <span class="tag">Fast wifi (59 Mbps)</span>
           <span class="tag">Kitchen</span>
@@ -425,6 +446,9 @@
       <div class="card-body">
         <h3>Modern 1BHK Flat | Balcony & AC | Secunderabad</h3>
         <p>Airbnb ID 1488933080855732939. Modern flat with balcony, AC, workspace, and parking.</p>
+        <div class="meta">
+          <span>3 guests</span><span class="dot"></span><span>1 bedroom</span><span class="dot"></span><span>2 beds</span><span class="dot"></span><span>1 bath</span><span class="dot"></span><span>New/No reviews yet</span>
+        </div>
         <div class="amenities">
           <span class="tag">Wifi</span>
           <span class="tag">Kitchen</span>
@@ -449,6 +473,9 @@
       <div class="card-body">
         <h3>Premium 2BHK Flat | Balcony & AC | Secunderabad</h3>
         <p>Airbnb ID 1153212540201068866. Premium 2BHK with balcony, AC, work setup, and parking.</p>
+        <div class="meta">
+          <span>6 guests</span><span class="dot"></span><span>2 bedrooms</span><span class="dot"></span><span>3 beds</span><span class="dot"></span><span>2 baths</span><span class="dot"></span><span>★ 4.85 (20)</span>
+        </div>
         <div class="amenities">
           <span class="tag">Wifi</span>
           <span class="tag">Kitchen</span>
@@ -469,55 +496,7 @@
 
   <div class="section-title">Rates & discounts</div>
   <section class="pricing-table">
-    <table>
-      <thead>
-        <tr>
-          <th>Season</th>
-          <th>Dates</th>
-          <th>Weeknight</th>
-          <th>Weekend</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Winter</td>
-          <td>Jan 5 – Mar 15</td>
-          <td>$210</td>
-          <td>$245</td>
-          <td>15% off Sun–Thu</td>
-        </tr>
-        <tr>
-          <td>Spring</td>
-          <td>Mar 16 – Jun 1</td>
-          <td>$230</td>
-          <td>$265</td>
-          <td>3+ nights: 10% off</td>
-        </tr>
-        <tr>
-          <td>Summer Peak</td>
-          <td>Jun 2 – Sep 8</td>
-          <td>$280</td>
-          <td>$330</td>
-          <td>Weekly stays save $120</td>
-        </tr>
-        <tr>
-          <td>Fall</td>
-          <td>Sep 9 – Nov 20</td>
-          <td>$235</td>
-          <td>$270</td>
-          <td>Early booking 5% off</td>
-        </tr>
-        <tr>
-          <td>Holidays</td>
-          <td>Nov 21 – Jan 4</td>
-          <td>$320</td>
-          <td>$360</td>
-          <td>2-night minimum</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="note">Live pricing and discounts are shown on each Airbnb listing. Use the links above to pick dates and see the latest totals, fees, and availability.</div>
+    <div class="note">Live pricing, fees, and any discounts are shown directly on Airbnb in INR. Tap a listing to pick dates and see the latest totals.</div>
   </section>
 
   <div class="section-title">Contact</div>
