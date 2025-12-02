@@ -3,205 +3,557 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello, World!</title>
+  <title>Handa Homes | Boutique Stays</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-start: #0f1b2c;
-      --bg-end: #0b1020;
-      --accent: #7cf2d4;
-      --accent-2: #60a8ff;
+      --bg-start: #0d0f1d;
+      --bg-end: #0a1226;
+      --accent: #6cf2d2;
+      --accent-2: #7aa5ff;
       --text: #e8f1ff;
-      --muted: #98a7c0;
+      --muted: #9dafc8;
       --card: rgba(255, 255, 255, 0.06);
       --border: rgba(255, 255, 255, 0.12);
-      --glow: rgba(124, 242, 212, 0.35);
+      --glow: rgba(124, 242, 212, 0.28);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       min-height: 100vh;
       font-family: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
-      background: radial-gradient(circle at 20% 20%, rgba(124, 242, 212, 0.08), transparent 35%),
-                  radial-gradient(circle at 80% 0%, rgba(96, 168, 255, 0.12), transparent 40%),
-                  linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      background:
+        radial-gradient(circle at 18% 20%, rgba(124, 242, 212, 0.08), transparent 35%),
+        radial-gradient(circle at 82% 0%, rgba(122, 165, 255, 0.14), transparent 40%),
+        linear-gradient(135deg, var(--bg-start), var(--bg-end));
       color: var(--text);
+      padding: 40px 24px 80px;
+    }
+
+    header {
+      max-width: 1100px;
+      margin: 0 auto 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(140deg, rgba(124, 242, 212, 0.2), rgba(122, 165, 255, 0.22));
+      border: 1px solid var(--border);
       display: grid;
       place-items: center;
-      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
 
-    .card {
-      width: min(600px, 100%);
-      border-radius: 28px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(18px);
-      padding: 32px 32px 28px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
-      animation: floatIn 900ms ease 120ms both;
-    }
-
-    .card::before,
-    .card::after {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      filter: blur(50px);
-      opacity: 0.8;
-      pointer-events: none;
-      transition: transform 300ms ease;
-    }
-
-    .card::before {
-      background: var(--glow);
-      top: -60px;
-      right: -40px;
-    }
-
-    .card::after {
-      background: rgba(96, 168, 255, 0.32);
-      bottom: -40px;
-      left: -40px;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(32px, 4vw, 44px);
-      letter-spacing: -0.6px;
-    }
-
-    p {
-      margin: 0 0 28px;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      background: rgba(124, 242, 212, 0.12);
+    .logo span {
+      font-weight: 700;
       color: var(--accent);
-      border: 1px solid rgba(124, 242, 212, 0.25);
+      letter-spacing: 0.04em;
+    }
+
+    .header-cta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      padding: 8px 14px;
       border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-size: 12px;
-      margin-bottom: 16px;
+      letter-spacing: 0.02em;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 14px 18px;
-      border-radius: 14px;
-      border: 1px solid rgba(124, 242, 212, 0.3);
-      background: linear-gradient(120deg, rgba(124, 242, 212, 0.25), rgba(96, 168, 255, 0.25));
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(124, 242, 212, 0.35);
+      background: linear-gradient(120deg, rgba(124, 242, 212, 0.18), rgba(122, 165, 255, 0.18));
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       text-decoration: none;
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
     }
 
     .btn:hover {
-      transform: translateY(-2px) scale(1.01);
+      transform: translateY(-2px);
       border-color: rgba(124, 242, 212, 0.6);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
     }
 
-    .orbit {
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto 28px;
+      padding: 28px;
+      border-radius: 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
       position: absolute;
-      inset: -40%;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.85;
       pointer-events: none;
-      mask-image: radial-gradient(circle at center, black 45%, transparent 65%);
-      opacity: 0.45;
-      animation: spin 18s linear infinite;
+    }
+
+    .hero::before {
+      background: var(--glow);
+      top: -80px;
+      right: -40px;
+    }
+
+    .hero::after {
+      background: rgba(122, 165, 255, 0.28);
+      bottom: -90px;
+      left: -50px;
+    }
+
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(32px, 4vw, 46px);
+      letter-spacing: -0.6px;
+    }
+
+    .hero p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 720px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .stat .value {
+      margin-top: 6px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .section-title {
+      max-width: 1100px;
+      margin: 28px auto 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 36px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 2px;
     }
 
     .grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      position: relative;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.55);
+      transition: transform 160ms ease, border-color 160ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124, 242, 212, 0.4);
+    }
+
+    .thumb {
+      position: relative;
+      padding-top: 62%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .tag {
       position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-      background-size: 28px 28px;
-      mask-image: radial-gradient(ellipse at center, black 60%, transparent 90%);
-      pointer-events: none;
+      top: 12px;
+      left: 12px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(12, 18, 42, 0.8);
+      border: 1px solid rgba(124, 242, 212, 0.35);
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 12px;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    .card-body {
+      padding: 16px 16px 18px;
     }
 
-    @keyframes floatIn {
-      from {
-        opacity: 0;
-        transform: translateY(14px) scale(0.98);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 18px;
     }
 
-    @media (max-width: 540px) {
-      .card {
-        padding: 26px 22px 22px;
-        border-radius: 22px;
-      }
-      h1 {
-        font-size: 30px;
-      }
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
+    .card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .amenities {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .chip {
+      padding: 6px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .price .night {
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .pricing-table {
+      max-width: 1100px;
+      margin: 12px auto;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .discount {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: rgba(124, 242, 212, 0.12);
+      border: 1px solid rgba(124, 242, 212, 0.3);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .contact {
+      max-width: 1100px;
+      margin: 18px auto 0;
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .contact p {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+
+    .contact strong { color: var(--text); }
+
+    footer {
+      max-width: 1100px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media (max-width: 640px) {
+      header { flex-direction: column; align-items: flex-start; }
+      .header-cta { width: 100%; justify-content: space-between; }
+      .hero { padding: 22px; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="orbit">
-      <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="200" cy="200" r="140" stroke="url(#grad1)" stroke-width="2" stroke-dasharray="6 10" />
-        <circle cx="200" cy="200" r="180" stroke="url(#grad2)" stroke-width="2" stroke-dasharray="10 14" />
-        <defs>
-          <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="1">
-            <stop stop-color="rgba(124, 242, 212, 0.5)"/>
-            <stop offset="1" stop-color="rgba(96, 168, 255, 0.5)"/>
-          </linearGradient>
-          <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="1">
-            <stop stop-color="rgba(96, 168, 255, 0.45)"/>
-            <stop offset="1" stop-color="rgba(124, 242, 212, 0.45)"/>
-          </linearGradient>
-        </defs>
-      </svg>
+  <header>
+    <div class="brand">
+      <div class="logo"><span>HH</span></div>
+      <div>
+        <div style="font-weight:700; font-size:16px;">Handa Homes</div>
+        <div style="color:var(--muted); font-size:13px;">Boutique stays, designed for comfort.</div>
+      </div>
     </div>
-    <div class="grid"></div>
-    <div class="tag">Hello World</div>
-    <h1>Hello, world. But make it fancy.</h1>
-    <p>Welcome to a crisp, modern splash page with a dash of neon glow. Everything you need for a quick landing, portfolio intro, or a playful “hello” to the internet.</p>
-    <a class="btn" href="https://example.com" target="_blank" rel="noreferrer noopener">
-      Explore More
-      <span aria-hidden="true">↗</span>
-    </a>
-  </div>
+    <div class="header-cta">
+      <div class="pill">New: Winter Weeknight 15% Off</div>
+      <a class="btn" href="mailto:stay@handahomes.com">Book a Stay ↗</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Find your next stay with Handa Homes.</h1>
+    <p>Four thoughtfully curated homes with bright interiors, fast Wi‑Fi, plush linens, and self check‑in. Perfect for family getaways, workcations, or a long weekend reset.</p>
+    <div class="hero-grid">
+      <div class="stat">
+        <div class="label">Locations</div>
+        <div class="value">Downtown • Lakeview • Hillside • Marina</div>
+      </div>
+      <div class="stat">
+        <div class="label">Amenities</div>
+        <div class="value">Wi‑Fi 300 Mbps, Parking, Full Kitchens, EV-ready</div>
+      </div>
+      <div class="stat">
+        <div class="label">Support</div>
+        <div class="value">Concierge chat 8am‑10pm, 7 days</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-title">Featured Properties</div>
+  <section class="grid">
+    <article class="card">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80');">
+        <div class="tag">Downtown Loft</div>
+      </div>
+      <div class="card-body">
+        <h3>SoMa Skylight Loft</h3>
+        <p>2BR | Sleeps 4 | Floor‑to‑ceiling windows, espresso bar, steps from cafes.</p>
+        <div class="amenities">
+          <span class="chip">300 Mbps Wi‑Fi</span>
+          <span class="chip">Parking</span>
+          <span class="chip">Washer/Dryer</span>
+          <span class="chip">Self Check‑in</span>
+        </div>
+        <div class="price">$240<span class="night">/night avg</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1472220625704-91e1462799b2?auto=format&fit=crop&w=1200&q=80');">
+        <div class="tag">Lakeview</div>
+      </div>
+      <div class="card-body">
+        <h3>North Shore Retreat</h3>
+        <p>3BR | Sleeps 6 | Lake deck, grill, fire pit, and paddleboards included.</p>
+        <div class="amenities">
+          <span class="chip">Lakeside Deck</span>
+          <span class="chip">Fire Pit</span>
+          <span class="chip">EV Charger</span>
+          <span class="chip">Pet Friendly</span>
+        </div>
+        <div class="price">$285<span class="night">/night avg</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1505693415763-3ed5e04ba4cd?auto=format&fit=crop&w=1200&q=80');">
+        <div class="tag">Hillside</div>
+      </div>
+      <div class="card-body">
+        <h3>Cedar Ridge Chalet</h3>
+        <p>4BR | Sleeps 8 | Mountain views, sauna, wood stove, stocked game room.</p>
+        <div class="amenities">
+          <span class="chip">Sauna</span>
+          <span class="chip">Wood Stove</span>
+          <span class="chip">Game Room</span>
+          <span class="chip">Heated Floors</span>
+        </div>
+        <div class="price">$340<span class="night">/night avg</span></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="thumb" style="background-image:url('https://images.unsplash.com/photo-1484156818044-c040038b0710?auto=format&fit=crop&w=1200&q=80');">
+        <div class="tag">Marina</div>
+      </div>
+      <div class="card-body">
+        <h3>Harborlight Bungalow</h3>
+        <p>2BR | Sleeps 4 | Steps to the pier, courtyard dining, beach cruisers.</p>
+        <div class="amenities">
+          <span class="chip">Beach Access</span>
+          <span class="chip">Cruiser Bikes</span>
+          <span class="chip">Outdoor Shower</span>
+          <span class="chip">Dedicated Workspace</span>
+        </div>
+        <div class="price">$225<span class="night">/night avg</span></div>
+      </div>
+    </article>
+  </section>
+
+  <div class="section-title">Rates & Discounts</div>
+  <section class="pricing-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Season</th>
+          <th>Dates</th>
+          <th>Weeknight</th>
+          <th>Weekend</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Winter</td>
+          <td>Jan 5 – Mar 15</td>
+          <td>$210</td>
+          <td>$245</td>
+          <td><span class="discount">15% Off Sun–Thu</span></td>
+        </tr>
+        <tr>
+          <td>Spring</td>
+          <td>Mar 16 – Jun 1</td>
+          <td>$230</td>
+          <td>$265</td>
+          <td>Stay 3+ nights, get 10% off</td>
+        </tr>
+        <tr>
+          <td>Summer Peak</td>
+          <td>Jun 2 – Sep 8</td>
+          <td>$280</td>
+          <td>$330</td>
+          <td>Weekly stays save $120</td>
+        </tr>
+        <tr>
+          <td>Fall</td>
+          <td>Sep 9 – Nov 20</td>
+          <td>$235</td>
+          <td>$270</td>
+          <td>Early booking: 5% off</td>
+        </tr>
+        <tr>
+          <td>Holidays</td>
+          <td>Nov 21 – Jan 4</td>
+          <td>$320</td>
+          <td>$360</td>
+          <td>2-night minimum</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="section-title">Contact Us</div>
+  <section class="contact">
+    <div>
+      <strong>Reservations & Questions</strong>
+      <p>Email: <a class="btn" style="padding:8px 12px; font-size:13px;" href="mailto:stay@handahomes.com">stay@handahomes.com</a></p>
+      <p>Phone: <strong>(415) 555-0187</strong></p>
+    </div>
+    <div>
+      <strong>Location</strong>
+      <p>Handa Homes HQ</p>
+      <p>241 Market Street, Suite 210</p>
+      <p>San Francisco, CA</p>
+    </div>
+    <div>
+      <strong>Availability</strong>
+      <p>8am – 10pm, 7 days</p>
+      <p>Response time: under 1 hour</p>
+    </div>
+  </section>
+
+  <footer>
+    <span>Handa Homes • Boutique Stays</span>
+    <span>Follow us on Instagram @HandaHomes</span>
+  </footer>
 </body>
 </html>
